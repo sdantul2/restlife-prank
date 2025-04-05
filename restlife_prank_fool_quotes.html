@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RestLife Offer Confirmation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #ffffff);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      margin-top: 20px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #162c6d;
+    }
+
+    .prank-message {
+      display: none;
+      font-size: 22px;
+      font-weight: bold;
+      color: #e11d48;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 16px;
+      color: #555;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <h1>RestLife Offer Confirmation</h1>
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+    <label for="position">Are you accepting the offer?</label>
+    <select id="position">
+      <option value="">-- Select an option --</option>
+      <option value="yes">Yes, I accept</option>
+      <option value="no">No, I decline</option>
+      <option value="undecided">Still thinking</option>
+    </select>
+
+    <label for="date">Preferred Interview Date</label>
+    <select id="date">
+      <option value="">-- Select a date --</option>
+      <option value="april9">Wednesday, April 9, 2025</option>
+      <option value="april10">Thursday, April 10, 2025</option>
+    </select>
+
+    <label for="time">Preferred Interview Time</label>
+    <select id="time">
+      <option value="">-- Select a time --</option>
+      <option value="10am">10:00 AM</option>
+      <option value="11am">11:00 AM</option>
+      <option value="2pm">2:00 PM</option>
+      <option value="3pm">3:00 PM</option>
+    </select>
+
+    <label><input type="checkbox" id="confirmCheck" /> I confirm that the above details are correct.</label>
+    
+    <button onclick="submitForm()">Submit Confirmation</button>
+  </div>
+
+  <div class="prank-message" id="prankMsg">
+    🎉 APRIL FOOL! 😄<br>
+    You've been pranked by Sai Tarun!
+    <div class="quote">
+      “Life is short. Smile while you still have teeth.”<br>
+      “You can't trust everything you read on the internet.” – Abraham Lincoln 😉<br>
+      “I solemnly swear I was up to no good.” – Mischief Managed 🧙‍♂️
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('fullName').value.trim();
+      const response = document.getElementById('position').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const check = document.getElementById('confirmCheck');
+
+      if (!name || !response || !date || !time || !check.checked) {
+        alert("Please fill all the fields and confirm before submitting.");
+        return;
+      }
+
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('prankMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
